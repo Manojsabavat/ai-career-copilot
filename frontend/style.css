@@ -1,0 +1,158 @@
+* { box-sizing: border-box; }
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+}
+body { margin: 0; min-height: 100vh; background: #f5f7fb; }
+button, textarea, input { font: inherit; }
+button { cursor: pointer; }
+.app-shell { max-width: 1180px; margin: auto; padding: 24px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.brand { font-size: 22px; font-weight: 800; letter-spacing: -.4px; }
+.subtitle { color: #687386; font-size: 13px; margin-top: 3px; }
+.status-pill { padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.status-pill.online { background: #e7f8ef; color: #16834a; }
+.status-pill.offline { background: #fff1f1; color: #b42318; }
+.panel, .card { background: white; border: 1px solid #e4e8ef; border-radius: 18px; box-shadow: 0 8px 30px rgba(31, 45, 61, .05); }
+.panel { padding: 34px; }
+.hero { max-width: 720px; margin-bottom: 30px; }
+.eyebrow { color: #536dfe; font-size: 11px; font-weight: 800; letter-spacing: 1.3px; }
+h1 { margin: 8px 0; font-size: 34px; letter-spacing: -.9px; }
+h2 { margin: 0; font-size: 18px; }
+h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .7px; color: #7a8496; margin: 0 0 10px; }
+p { color: #687386; line-height: 1.6; }
+.form-grid, .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.card { padding: 22px; }
+.card > label { display: block; font-weight: 750; font-size: 14px; margin-bottom: 12px; }
+.drop-zone { min-height: 220px; border: 2px dashed #d8deea; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; text-align: center; transition: .15s; }
+.drop-zone.dragover { border-color: #536dfe; background: #f5f7ff; }
+.upload-icon { width: 44px; height: 44px; border-radius: 12px; background: #eef1ff; color: #536dfe; display: grid; place-items: center; font-size: 25px; font-weight: 800; }
+.drop-zone span { color: #8a94a6; font-size: 13px; }
+textarea { width: 100%; min-height: 220px; resize: vertical; border: 1px solid #dfe4ec; border-radius: 12px; padding: 14px; outline: none; }
+textarea:focus { border-color: #536dfe; box-shadow: 0 0 0 3px #536dfe18; }
+.secondary, .primary { border: 0; border-radius: 10px; padding: 10px 15px; font-weight: 750; }
+.secondary { background: #eef1f5; color: #263248; margin-top: 10px; }
+.primary { background: #172033; color: white; padding: 13px 19px; }
+.actions { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.error { color: #b42318; font-size: 13px; }
+.hidden { display: none !important; }
+.loading { min-height: 380px; display: grid; place-items: center; align-content: center; text-align: center; }
+.spinner { width: 42px; height: 42px; border: 4px solid #e7eaf0; border-top-color: #536dfe; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.results-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.results-head h1 { font-size: 30px; }
+.score-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.score-card { background: white; border: 1px solid #e4e8ef; border-radius: 16px; padding: 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; }
+.score-card span { color: #697487; font-size: 12px; font-weight: 700; }
+.score-card strong { font-size: 28px; letter-spacing: -.8px; }
+.score-card small { color: #8a94a6; line-height: 1.4; }
+.score-card.overall strong { font-size: 42px; }
+.content-grid { margin-bottom: 18px; }
+.section-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 28px; }
+.chip { padding: 7px 10px; border-radius: 8px; background: #eef1f5; font-size: 12px; font-weight: 650; }
+.skill-block + .skill-block { margin-top: 22px; }
+.responsibility-list { display: grid; gap: 10px; }
+.resp { padding: 12px; border-radius: 10px; background: #f7f8fa; font-size: 13px; }
+.resp.ok { border-left: 3px solid #22a06b; }
+.resp.missing { border-left: 3px solid #e5484d; }
+.recommendations { margin-bottom: 18px; }
+.recommendations ol { margin: 0; padding-left: 22px; }
+.recommendations li { margin: 11px 0; color: #3e485a; line-height: 1.5; }
+.profile-summary { color: #5e687a; font-size: 13px; line-height: 1.65; white-space: pre-line; }
+@media (max-width: 850px) {
+  .form-grid, .content-grid, .score-grid { grid-template-columns: 1fr; }
+  .results-head { flex-direction: column; gap: 12px; }
+  .app-shell { padding: 15px; }
+  .panel { padding: 22px; }
+}
+
+/* Candidate Profile / Job Requirements */
+
+.detail-section {
+  margin-bottom: 24px;
+}
+
+.detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #52698a;
+  margin-bottom: 8px;
+}
+
+.detail-content {
+  color: #18345b;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.profile-line {
+  margin-bottom: 4px;
+}
+
+.profile-line:last-child {
+  margin-bottom: 0;
+}
+
+.mini-chip {
+  display: inline-block;
+  background: #eef2f7;
+  color: #18345b;
+  border-radius: 7px;
+  padding: 5px 9px;
+  margin: 0 6px 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.responsibility-details {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.responsibility-details li {
+  margin-bottom: 8px;
+}
+
+.responsibility-details li:last-child {
+  margin-bottom: 0;
+}
+
+
+.summary-section-title {
+  margin-top: 14px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #17345f;
+}
+
+.summary-section-title:first-child {
+  margin-top: 0;
+}
+
+.summary-line {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.summary-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.summary-responsibilities {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.summary-responsibility {
+  line-height: 1.45;
+}

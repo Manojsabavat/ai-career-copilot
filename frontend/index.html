@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Career Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="resume_optimization.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand">AI Career Copilot</div>
+        <div class="subtitle">Resume intelligence & job-match analysis</div>
+      </div>
+      <span id="apiStatus" class="status-pill offline">API checking…</span>
+    </header>
+
+    <main>
+      <section id="inputView" class="panel">
+        <div class="hero">
+          <span class="eyebrow">CAREER ANALYSIS</span>
+          <h1>Understand your fit before you apply.</h1>
+          <p>Upload your resume, paste a job description, and get an evidence-based match analysis.</p>
+        </div>
+
+        <div class="form-grid">
+          <div class="card">
+            <label>Resume</label>
+            <div id="dropZone" class="drop-zone">
+              <input id="resumeFile" type="file" accept="application/pdf" hidden />
+              <div class="upload-icon">↑</div>
+              <strong id="fileTitle">Drop your PDF here</strong>
+              <span id="fileHint">or click to browse</span>
+              <button id="browseBtn" class="secondary" type="button">Choose PDF</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" placeholder="Paste the complete job description here…"></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <span id="errorBox" class="error"></span>
+          <button id="analyzeBtn" class="primary" type="button">Analyze Match →</button>
+        </div>
+      </section>
+
+      <section id="loadingView" class="panel hidden">
+        <div class="loading">
+          <div class="spinner"></div>
+          <h2>Analyzing your profile</h2>
+          <p>Parsing your resume, matching requirements, and generating recommendations…</p>
+        </div>
+      </section>
+
+      <section id="resultsView" class="hidden">
+        <div class="results-head">
+          <div>
+            <span class="eyebrow">ANALYSIS COMPLETE</span>
+            <h1 id="jobTitle">Job Match</h1>
+            <p id="summary"></p>
+          </div>
+          <button id="newAnalysisBtn" class="secondary">← New Analysis</button>
+        </div>
+
+        <div class="score-grid">
+          <div class="score-card overall">
+            <span>Overall Match</span>
+            <strong id="overallScore">—</strong>
+            <small>Based on skills, experience, education & responsibilities</small>
+          </div>
+          <div class="score-card"><span>Skills</span><strong id="skillScore">—</strong></div>
+          <div class="score-card"><span>Experience</span><strong id="experienceScore">—</strong></div>
+          <div class="score-card"><span>Education</span><strong id="educationScore">—</strong></div>
+          <div class="score-card"><span>Responsibilities</span><strong id="responsibilityScore">—</strong></div>
+        </div>
+
+        <div class="content-grid">
+          <div class="card">
+            <div class="section-title">
+              <h2>Skills Analysis</h2>
+              <span id="skillCount"></span>
+            </div>
+            <div class="skill-block">
+              <h3>Matched</h3>
+              <div id="matchedSkills" class="chips"></div>
+            </div>
+            <div class="skill-block">
+              <h3>Missing</h3>
+              <div id="missingSkills" class="chips"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title"><h2>Responsibilities</h2></div>
+            <div id="responsibilityList" class="responsibility-list"></div>
+          </div>
+        </div>
+
+        <div class="card recommendations">
+          <div class="section-title"><h2>Recommended Next Steps</h2></div>
+          <ol id="recommendationList"></ol>
+        </div>
+
+        <div class="card recommendations">
+          <div class="section-title"><h2>Resume Optimization</h2></div>
+
+          <div id="resumeOptimization"></div>
+        </div>
+
+        <div class="content-grid">
+          <div class="card">
+            <div class="section-title"><h2>Candidate Profile</h2></div>
+            <div id="profileSummary" class="profile-summary"></div>
+          </div>
+          <div class="card">
+            <div class="section-title"><h2>Job Requirements</h2></div>
+            <div id="jobSummary" class="profile-summary"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

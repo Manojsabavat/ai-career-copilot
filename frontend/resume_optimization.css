@@ -1,0 +1,10 @@
+
+.resume-bullet-optimization {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #e4e8ef;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+.resume-bullet-optimization .summary-line { margin-bottom: 7px; }
+.resume-bullet-optimization .summary-line:last-child { margin-bottom: 0; }

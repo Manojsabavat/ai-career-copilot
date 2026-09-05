@@ -1,28 +1,29 @@
-# Python
-__pycache__/
-*.py[cod]
+# Python virtual environment
 .venv/
 venv/
-.env
+env/
 
-# Node
-node_modules/
-.next/
-out/
+# Python cache
+__pycache__/
+*.py[cod]
 
-# Environment
-.env.local
+# Pytest
+.pytest_cache/
 
 # IDE
 .vscode/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
-# Data
-*.csv
-*.xlsx
+# Environment / secrets
+.env
+*.env
 
 # Logs
 *.log
+
+# Temporary files
+*.tmp
+*.temp
