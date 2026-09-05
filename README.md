@@ -2,6 +2,17 @@
 
 AI Career Copilot is a resume intelligence and job-match analysis web application that evaluates how well a candidate's resume aligns with a target job description.
 
+> An evidence-based resume intelligence platform that evaluates candidate–job fit and generates actionable, JD-specific resume optimization insights.
+
+## Project Highlights
+
+- **Resume Intelligence:** Extracts structured candidate information from PDF resumes.
+- **JD Intelligence:** Parses job descriptions into skills, experience, education, and responsibilities.
+- **Explainable Matching:** Calculates separate skill, experience, education, and responsibility scores before producing an overall job-fit score.
+- **Resume Optimization:** Identifies missing requirements, suggests relevant keywords and projects, and improves the visibility of existing resume evidence.
+- **Evidence-Aware Suggestions:** Avoids fabricating achievements, metrics, tools, or experience when the resume lacks supporting evidence.
+- **Role-Aware Recommendations:** Adapts project ideas and recommendations to different target roles.
+
 ## Features
 
 - Resume PDF parsing and candidate-profile extraction
